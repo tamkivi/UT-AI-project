@@ -7,16 +7,16 @@ import os
 import base64
 import io
 
-app = Flask("imagerecog", static_folder=os.path.abspath('attempt2/static'))
+app = Flask("imagerecog", static_folder=os.path.abspath('static'))
 
 # Lae kerase mudel valmis
-model = keras.models.load_model('attempt2/keras_model.h5')
+model = keras.models.load_model('keras_model.h5')
 
 # Kompileeri mudel
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Lae mudeli eristatavad kategooriad
-class_names = open('attempt2/labels.txt', "r").readlines()
+class_names = open('labels.txt', "r").readlines()
 
 # Defineeri iga leitud klassile vastav sõnum kasutajale
 class_text = {
